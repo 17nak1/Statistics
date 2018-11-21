@@ -17,10 +17,10 @@ normal.pnorm = function (x, mu = 0, sd = 1,lower_tail = true, give_log = false) 
   return ans
 }
 normal.rnorm = function (n, mu = 0, sd = 0) {
+  let arr = [], val, a = 1 / Math.sqrt(2 * pi * Math.pow(sd, 2))
   if (sd < 0) {
     return NaN
   }
-  let arr = [], val, a = 1 / Math.sqrt(2 * pi * Math.pow(sd, 2))
     while (arr.length < n) {
       val = Math.random() * n 
       arr.push(a * Math.exp(-Math.pow((val - mu), 2) / 2 * (sd ** 2)))
