@@ -17,7 +17,7 @@ const poissonDist = function (x, lambda) {
     total += Math.log(i)
   }
   let logAns = ans - total
-  return Math.pow(exp, logAns)
+  return Math.exp(logAns)
 }
 
 function factorial (intValue) {
