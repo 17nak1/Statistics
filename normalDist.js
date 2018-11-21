@@ -7,7 +7,6 @@ normal.pnorm = function (x, mu = 0, sd = 1,lower_tail = true, give_log = false) 
   if (sd < 0) {
     return NaN
   }
-
   let ans = 0.5 + 0.5 * erf((x - mu) / Math.sqrt(2) * sd)
   if(!lower_tail) {
      ans = 1- ans 
@@ -17,7 +16,6 @@ normal.pnorm = function (x, mu = 0, sd = 1,lower_tail = true, give_log = false) 
   }
   return ans
 }
-
 normal.rnorm = function (n, mu = 0, sd = 0) {
   if (sd < 0) {
     return NaN
@@ -30,5 +28,4 @@ normal.rnorm = function (n, mu = 0, sd = 0) {
   }
   return arr
 }
-
 module.exports = normal;
