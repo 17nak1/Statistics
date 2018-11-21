@@ -1,9 +1,12 @@
 //* CDF and PDF of normal distribution ~ N(mu, sd)
-var mathLib = {}
+var normal = {}
 let exp = 2.718281828
 let pi = 3.141592654
 var erf = require( 'math-erf' )
-mathLib.pnorm = function (x, mu = 0, sd = 1,lower_tail = true, give_log = false) {
+normal.pnorm = function (x, mu = 0, sd = 1,lower_tail = true, give_log = false) {
+  if (sd < 0) {
+    return NaN
+  }
   let ans = 0.5 + 0.5 * erf((x - mu) / Math.sqrt(2) * sd)
   if(!lower_tail) {
      ans = 1- ans 
@@ -14,7 +17,10 @@ mathLib.pnorm = function (x, mu = 0, sd = 1,lower_tail = true, give_log = false)
   return ans
 }
 
-mathLib.rnorm = function (n, mu = 0, sd = 0) {
+normal.rnorm = function (n, mu = 0, sd = 0) {
+  if (sd < 0) {
+    return NaN
+  }
   let arr = [], val, a = 1 / Math.sqrt(2 * pi * Math.pow(sd, 2))
     while (arr.length < n) {
       val = Math.random() * n 
@@ -23,4 +29,4 @@ mathLib.rnorm = function (n, mu = 0, sd = 0) {
   return arr
 }
 
-module.exports = mathLib;
+module.exports = normal;
