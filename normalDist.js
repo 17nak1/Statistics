@@ -20,7 +20,6 @@ normal.rnorm = function (n, mu = 0, sd = 0) {
   if (sd < 0) {
     return NaN
   }
-
   let arr = [], val, a = 1 / Math.sqrt(2 * pi * Math.pow(sd, 2))
     while (arr.length < n) {
       val = Math.random() * n 
