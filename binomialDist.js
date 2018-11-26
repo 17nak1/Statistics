@@ -16,4 +16,4 @@ const logsum = function (lowerBound, upperBound) {
   }
   return sum
 }
-module.exports = binomial;
+module.exports = binomial
