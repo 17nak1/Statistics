@@ -1,6 +1,8 @@
 //* Probability mass function for the Poisson distribution (pmf)
+// lambda represents the rate of occurrence
+var poisson ={}
 let exp = 2.718281828
-const poissonDist = function (x, lambda) {
+poisson.dist = function (lambda = 1, x = 0) {
   let ans, total = 0
   if (isNaN(x) || isNaN(lambda) || lambda < 0) {
     return NaN
@@ -39,5 +41,5 @@ function factorial (intValue) {
   }
   return result.reverse().join('')
 }
-
+module.exports = poisson
 

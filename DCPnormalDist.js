@@ -1,8 +1,9 @@
 //* Probability density function for the Normal distribution ~ N(mu, sigma)
 //* P(x) = a * exp((x-mu)^2/2 * (sigma)^2)
 // * generate N numbers in [0,1] with a normal distribution that can be random (if random = true)
+var normal = {}
 let exp = 2.718281828
-const normalDist = function (a, sigma, mu, xB, xE, N, random = false) {
+normal.dist = function (a, mu, sigma, xB, xE, N, random = false) {
   let arr = [], val
   if (random) {
     while (arr.length < N) {
@@ -19,3 +20,4 @@ const normalDist = function (a, sigma, mu, xB, xE, N, random = false) {
   }
   return arr
 }
+module.exports = normal
