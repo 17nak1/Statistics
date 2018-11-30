@@ -40,5 +40,3 @@ function factorial (intValue) {
   return result.reverse().join('')
 }
 
-console.log(poissonDist(2,5))
-
