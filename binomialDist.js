@@ -1,17 +1,19 @@
-//* Binomial distribution
+// Probability mass function for the binomial distribution
+// n represents the number of trials
+// p represents the probability of success in each trial
 var binomial = {}
-binomial.dist = function (k = 0 ,n = 1, p = 0.5){
-  if (k > n) {
+binomial.dist = function (n = 1, p = 0.5, x = 0){
+  if (x > n) {
     return NaN
   }
-  var logBinom = logsum(n - k + 1, n) - logsum(2, k) +k * Math.log(p) +(n - k) * Math.log (1 - p)
+  var logBinom = logsum(n - x + 1, n) - logsum(2, x) +x * Math.log(p) +(n - x) * Math.log (1 - p)
   return Math.exp(logBinom)
 }
-binomial.logsum = function (lowerBound, upperBound) {
+const logsum = function (lowerBound, upperBound) {
   var sum = 0;
   for(i = lowerBound; i <= upperBound; i++){
     sum += Math.log(i); 
   }
   return sum
 }
-module.exports = binomial;
+module.exports = binomial
