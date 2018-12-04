@@ -1,4 +1,4 @@
-//* CDF and PDF of normal distribution ~ N(mu, sd)
+//* CDF of normal distribution ~ N(mu, sd)
 var normal = {}
 let exp = 2.718281828
 let pi = 3.141592654
@@ -16,15 +16,9 @@ normal.pnorm = function (x, mu = 0, sd = 1,lower_tail = true, give_log = false) 
   }
   return ans
 }
-normal.rnorm = function (n, mu = 0, sd = 0) {
-  let arr = [], val, a = 1 / Math.sqrt(2 * pi * Math.pow(sd, 2))
-  if (sd < 0) {
-    return NaN
-  }
-    while (arr.length < n) {
-      val = Math.random() * n 
-      arr.push(a * Math.exp(-Math.pow((val - mu), 2) / 2 * (sd ** 2)))
-  }
-  return arr
+//* Generate a random number with normal distibution
+mathLib.rnorm = function (mu = 0, sd = 1) { 
+  var val = Math.sqrt( -2.0 * Math.log(rng()) ) * Math.cos( 2.0 * pi * rng())
+  return val * sd + mu
 }
 module.exports = normal;
