@@ -1,4 +1,4 @@
-//* Probability mass function for the Poisson distribution (pmf)
+//* RNG
 // lambda represents the rate of occurrence
 var poisson ={}
 let exp = 2.718281828
