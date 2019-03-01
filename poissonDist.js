@@ -22,23 +22,4 @@ poisson.dist = function (lambda = 1, x = 0) {
   return Math.exp(logAns)
 }
 
-function factorial (intValue) {
-  var i, nextNumber, carret, result
-  if (intValue === 0) {
-    return '1'
-  }
-  if (!intValue) {
-    return ''
-  }
-  result = intValue.toString().split('').reverse().map(Number)
-  while (--intValue) {
-    i = carret = 0
-    while ((nextNumber = result[i++]) !== undefined || carret) {
-      carret = (nextNumber || 0) * intValue + carret
-      result[i - 1] = carret % 10
-      carret = parseInt(carret / 10)
-    }
-  }
-  return result.reverse().join('')
-}
 module.exports = poisson
